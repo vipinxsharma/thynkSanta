@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThynkWISE Santa - Execution Consulting Gift Shop 🎅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Snowfall Animation */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            cursor: default;
+            animation-name: snowfall;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            opacity: 0.8;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 3px solid #c41e3a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🎄';
+            position: absolute;
+            left: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: '🎄';
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            animation: sway 3s ease-in-out infinite reverse;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: translateY(-50%) rotate(-5deg); }
+            50% { transform: translateY(-50%) rotate(5deg); }
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff0000, #00ff00, #ff0000);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-shift 3s ease infinite;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #e0e0e0;
+            font-style: italic;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            color: #e0e0e0;
+        }
+
+        .santa-quote {
+            background: rgba(196, 30, 58, 0.2);
+            border-left: 4px solid #c41e3a;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem auto;
+            max-width: 700px;
+            border-radius: 10px;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        /* Avatar Section */
+        .avatar-section {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+        }
+
+        .avatar-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .avatar-header h2 {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .avatar-header p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+        }
+
+        .avatar-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(196, 30, 58, 0.3);
+            border: 3px solid #c41e3a;
+            background: #000;
+        }
+
+        .avatar-container iframe {
+            width: 100%;
+            border: none;
+            display: block;
+            aspect-ratio: 16/9;
+        }
+
+        /* Gift Boxes Section */
+        .gifts-section {
+            margin-bottom: 3rem;
+        }
+
+        .gifts-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .gifts-header h2 {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .gifts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .gift-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gift-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(196, 30, 58, 0.4);
+            border-color: #ffd700;
+        }
+
+        .gift-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .gift-card h3 {
+            color: #ffd700;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gift-card p {
+            color: #e0e0e0;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: rgba(196, 30, 58, 0.15);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 2px solid rgba(196, 30, 58, 0.4);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #e0e0e0;
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(196, 30, 58, 0.3), rgba(0, 128, 0, 0.3));
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            border: 2px solid #ffd700;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #c41e3a, #ff0000);
+            color: #fff;
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(196, 30, 58, 0.5);
+            border: 2px solid #ffd700;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(196, 30, 58, 0.7);
+            background: linear-gradient(45deg, #ff0000, #c41e3a);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 2px solid #c41e3a;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+
+            .gifts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header::before,
+            .header::after {
+                font-size: 2rem;
+                left: 5%;
+                right: 5%;
+            }
+        }
+
+        /* Twinkling lights effect */
+        .lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: repeating-linear-gradient(
+                90deg,
+                #ff0000 0px,
+                #ff0000 10px,
+                transparent 10px,
+                transparent 20px,
+                #00ff00 20px,
+                #00ff00 30px,
+                transparent 30px,
+                transparent 40px,
+                #ffd700 40px,
+                #ffd700 50px,
+                transparent 50px,
+                transparent 60px
+            );
+            opacity: 0.6;
+            animation: twinkle 2s ease-in-out infinite;
+            z-index: 1000;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Christmas Lights -->
+    <div class="lights"></div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">🎅 ThynkWISE Santa 🎁</div>
+        <div class="tagline">India's First Execution Consulting Firm</div>
+        <div class="subtitle">Now Delivering Gifts of Wisdom This Holiday Season</div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="hero-title">🎄 Welcome to Santa's Execution Workshop! 🎄</h1>
+            <p class="hero-description">
+                This holiday season, ThynkWISE has transformed into <strong>ThynkWISE Santa</strong> – 
+                where we trade strategic recommendations for execution mastery, and deliver gifts of wisdom 
+                that actually WORK. No more strategies gathering dust. No more New Year's resolutions that 
+                fade by February. Just brutal honesty wrapped in festive cheer.
+            </p>
+            <div class="santa-quote">
+                "Ho ho hold on there, friend. I'm not checking if you've been good – I'm checking if you've 
+                been EXECUTING. Strategy is easy. Execution is where champions are made. Now let's make Q1 
+                your best quarter yet!" 🎅📊
+            </div>
+        </div>
+
+        <!-- Avatar Section -->
+        <div class="avatar-section">
+            <div class="avatar-header">
+                <h2>🎤 Chat with ThynkWISE Santa Live! 🎤</h2>
+                <p>Ask me anything about sales consulting, high-ticket closing, CRM optimization, or execution strategies. 
+                I'll deliver wisdom, challenge your assumptions, and help you close out the year strong!</p>
+            </div>
+            <div class="avatar-container">
+                <iframe src="https://embed.liveavatar.com/v1/8649fe38-1404-4382-833c-0b110c9f4f3d" allow="microphone" title="LiveAvatar Embed" style="aspect-ratio: 16/9;"></iframe>
+            </div>
+        </div>
+
+        <!-- Gift Boxes Section -->
+        <div class="gifts-section">
+            <div class="gifts-header">
+                <h2>🎁 Santa's Gift Catalog of Execution Wisdom 🎁</h2>
+            </div>
+            <div class="gifts-grid">
+                <div class="gift-card">
+                    <span class="gift-icon">💰</span>
+                    <h3>High-Ticket Closing Mastery</h3>
+                    <p>Stop closing $5K deals when you should be closing $50K deals. Learn Dan Lok's proven 
+                    methodologies for premium positioning, assumptive closing, and objection handling that 
+                    actually works.</p>
+                </div>
+
+                <div class="gift-card">
+                    <span class="gift-icon">📊</span>
+                    <h3>CRM Optimization Gift Box</h3>
+                    <p>Your Salesforce isn't broken – your usage is. Get a brutal audit of your current state 
+                    vs. potential, plus an execution roadmap that turns your $50K investment into actual revenue.</p>
+                </div>
+
+                <div class="gift-card">
+                    <span class="gift-icon">⚡</span>
+                    <h3>Sales Process Systematization</h3>
+                    <p>Manual processes are for elves. Transform your inconsistent sales approach into a 
+                    repeatable, scalable system that survives even when your top performer leaves.</p>
+                </div>
+
+                <div class="gift-card">
+                    <span class="gift-icon">🎯</span>
+                    <h3>Execution Accountability Framework</h3>
+                    <p>Strategies fail because no one's held accountable. Build measurement systems, performance 
+                    milestones, and ownership clarity that ensures execution actually happens.</p>
+                </div>
+
+                <div class="gift-card">
+                    <span class="gift-icon">🚀</span>
+                    <h3>Revenue Scaling Blueprint</h3>
+                    <p>Want to double revenue in Q1? Let's double your execution capacity first. Get gap analysis, 
+                    constraint elimination, and a roadmap that scales without breaking.</p>
+                </div>
+
+                <div class="gift-card">
+                    <span class="gift-icon">🧠</span>
+                    <h3>Strategy-to-Execution Bridge</h3>
+                    <p>80-90% of strategies fail during execution. Learn ThynkWISE's 4-stage methodology 
+                    (Explore, Ideate, Strategize, Execute) that turns plans into profitable reality.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">80-90%</div>
+                    <div class="stat-label">Strategy Failure Rate<br>(We Fix This)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2x</div>
+                    <div class="stat-label">Revenue Growth Target<br>(Through Execution)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Santa's Watching<br>Your Metrics</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Commitment to<br>Brutal Honesty</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>🎄 Ready to Unwrap Your Execution Potential? 🎄</h2>
+            <p>Stop planning. Start executing. Let's make Q1 2025 your breakthrough quarter.</p>
+            <a href="https://thynkwise.co.in" class="cta-button" target="_blank">
+                Visit ThynkWISE.co.in 🎁
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>ThynkWISE</strong> – India's First Execution Consulting Firm</p>
+        <p>Transforming Strategy into Reality, One Execution at a Time</p>
+        <p>
+            <a href="https://thynkwise.co.in" target="_blank">Website</a> | 
+            <a href="mailto:contact@thynkwise.co.in">Contact Santa</a>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">
+            🎅 Remember: Execution > Strategy. Always. 📊
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: #666;">
+            © 2024 ThynkWISE. All Rights Reserved. | Happy Holidays & Profitable Q1! 🎄
+        </p>
+    </div>
+
+    <!-- Snowfall Effect -->
+    <script>
+        // Create snowflakes
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = Math.random() * 5 + 5 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+            
+            document.body.appendChild(snowflake);
+            
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000);
+        }
+
+        // Create snowflakes periodically
+        setInterval(createSnowflake, 300);
+        
+        // Create initial batch
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createSnowflake, i * 100);
+        }
+    </script>
+</body>
+</html>
